@@ -18,9 +18,7 @@
 * Ansible
 Приложить вывод команд установленных версий каждой из программ, оформленный в markdown.
 
-## Задача 4 (*)
-Воспроизвести практическую часть лекции самостоятельно.
+![image](https://github.com/AllexxB/netology-homework/blob/09da39b5168c5f6658831715529393b7ed48ef81/pic/05-virt-02-iaac3.png)
+![image](https://github.com/AllexxB/netology-homework/blob/822a55a4e742097f43a774354bd10b77cb45325f/pic/05-virt-02-iaac2.png)
+![image](https://github.com/AllexxB/netology-homework/blob/d52bc5d8bb21dfa15108126d9cfcc21b565fe109/pic/05-virt-02-iaac1.png)
 
-Создать виртуальную машину.
-Зайти внутрь ВМ, убедиться, что Docker установлен с помощью команды
-docker ps
