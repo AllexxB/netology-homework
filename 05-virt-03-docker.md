@@ -54,7 +54,7 @@ Hey, Netology
 Воспроизвести практическую часть лекции самостоятельно.
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
-
+### Ссылка на репозиторий https://hub.docker.com/repository/docker/allexxb/ansible/general
 
 ---
 
