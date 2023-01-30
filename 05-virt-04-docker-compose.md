@@ -34,7 +34,33 @@
 Используйте terraform код в директории ([src/terraform](https://github.com/netology-group/virt-homeworks/tree/virt-11/05-virt-04-docker-compose/src/terraform))
 
 Для получения зачета, вам необходимо предоставить вывод команды terraform apply и страницы свойств созданной ВМ из личного кабинета YandexCloud.
+```shell
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
 
+  Enter a value: yes
+yandex_compute_instance.node01: Still creating... [10s elapsed]
+yandex_compute_instance.node01: Still creating... [20s elapsed]
+yandex_compute_instance.node01: Still creating... [30s elapsed]
+yandex_compute_instance.node01: Still creating... [40s elapsed]
+yandex_compute_instance.node01: Still creating... [50s elapsed]
+yandex_compute_instance.node01: Still creating... [1m0s elapsed]
+yandex_compute_instance.node01: Creation complete after 1m2s [id=fhmns1lvom8c6v7kanup]
+
+Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+external_ip_address_node01_yandex_cloud = "130.193.51.33"
+internal_ip_address_node01_yandex_cloud = "192.168.101.31"
+alex@DESKTOP-SBHASL4:~/homework$ yc compute instance list
++----------------------+--------+---------------+---------+---------------+----------------+
+|          ID          |  NAME  |    ZONE ID    | STATUS  |  EXTERNAL IP  |  INTERNAL IP   |
++----------------------+--------+---------------+---------+---------------+----------------+
+| fhmns1lvom8c6v7kanup | node01 | ru-central1-a | RUNNING | 130.193.51.33 | 192.168.101.31 |
++----------------------+--------+---------------+---------+---------------+----------------+
+```
 ## Задача 3
 
 С помощью ansible и docker-compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana .
