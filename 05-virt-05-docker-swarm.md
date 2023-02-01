@@ -54,4 +54,14 @@ tdlbxga9ajmq   swarm_monitoring_unsee              replicated   1/1        cloud
 # см.документацию: https://docs.docker.com/engine/swarm/swarm_manager_locking/
 docker swarm update --autolock=true
 ```
+```shell
+[centos@node01 ~]$ sudo docker swarm update --autolock=true
+Swarm updated.
+To unlock a swarm manager after it restarts, run the `docker swarm unlock`
+command and provide the following key:
 
+    SWMKEY-1-InE2ZIEOtngJOevc0aoR29dJaob22VFUfzFnb9GQW4o
+
+Please remember to store this key in a password manager, since without it you
+will not be able to restart the manager.
+```
