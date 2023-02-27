@@ -40,6 +40,92 @@
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 - список пользователей с правами над таблицами test_db
 
+```shell
+postgres=# \l
+                                    List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |      Access privileges
+-----------+----------+----------+------------+------------+------------------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres                 +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres                 +
+           |          |          |            |            | postgres=CTc/postgres
+ test_db   | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =Tc/postgres                +
+           |          |          |            |            | postgres=CTc/postgres       +
+           |          |          |            |            | test_admin_user=CTc/postgres
+(4 rows)
+
+postgres=#
+```
+
+``` shell
+postgres=# \d clients
+                                         Table "public.clients"
+      Column       |          Type          | Collation | Nullable |               Default
+-------------------+------------------------+-----------+----------+-------------------------------------
+ id                | integer                |           | not null | nextval('clients_id_seq'::regclass)
+ фамилия           | character varying(100) |           |          |
+ страна_проживания | character varying(100) |           |          |
+ заказ             | integer                |           |          |
+Indexes:
+    "clients_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "clients_заказ_fkey" FOREIGN KEY ("заказ") REFERENCES orders(id)
+
+postgres=#
+
+```
+``` shell
+postgres=# \d orders
+                                       Table "public.orders"
+    Column    |          Type          | Collation | Nullable |              Default
+--------------+------------------------+-----------+----------+------------------------------------
+ id           | integer                |           | not null | nextval('orders_id_seq'::regclass)
+ наименование | character varying(100) |           |          |
+ цена         | integer                |           |          |
+Indexes:
+    "orders_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "clients" CONSTRAINT "clients_заказ_fkey" FOREIGN KEY ("заказ") REFERENCES orders(id)
+
+postgres=#
+```
+
+```shell
+postgres=# SELECT * from information_schema.table_privileges WHERE grantee = 'test_simple_user' LIMIT 10;
+ grantor  |     grantee      | table_catalog | table_schema | table_name | privilege_type | is_grantable | with_hierarchy 
+----------+------------------+---------------+--------------+------------+----------------+--------------+----------------
+ postgres | test_simple_user | postgres      | public       | clients    | INSERT         | NO           | NO
+ postgres | test_simple_user | postgres      | public       | clients    | SELECT         | NO           | YES
+ postgres | test_simple_user | postgres      | public       | clients    | UPDATE         | NO           | NO
+ postgres | test_simple_user | postgres      | public       | clients    | DELETE         | NO           | NO
+ postgres | test_simple_user | postgres      | public       | orders     | INSERT         | NO           | NO
+ postgres | test_simple_user | postgres      | public       | orders     | SELECT         | NO           | YES
+ postgres | test_simple_user | postgres      | public       | orders     | UPDATE         | NO           | NO
+ postgres | test_simple_user | postgres      | public       | orders     | DELETE         | NO           | NO
+(8 rows)
+
+postgres=# SELECT * from information_schema.table_privileges WHERE grantee = 'test_admin_user' LIMIT 20;
+ grantor  |     grantee     | table_catalog | table_schema | table_name | privilege_type | is_grantable | with_hierarchy 
+----------+-----------------+---------------+--------------+------------+----------------+--------------+----------------
+ postgres | test_admin_user | postgres      | public       | clients    | INSERT         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | clients    | SELECT         | NO           | YES
+ postgres | test_admin_user | postgres      | public       | clients    | UPDATE         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | clients    | DELETE         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | clients    | TRUNCATE       | NO           | NO
+ postgres | test_admin_user | postgres      | public       | clients    | REFERENCES     | NO           | NO
+ postgres | test_admin_user | postgres      | public       | clients    | TRIGGER        | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | INSERT         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | SELECT         | NO           | YES
+ postgres | test_admin_user | postgres      | public       | orders     | UPDATE         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | DELETE         | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | TRUNCATE       | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | REFERENCES     | NO           | NO
+ postgres | test_admin_user | postgres      | public       | orders     | TRIGGER        | NO           | NO
+(14 rows)
+
+postgres=#
+```
 ## Задача 3
 
 Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
