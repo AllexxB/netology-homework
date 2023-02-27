@@ -235,7 +235,19 @@ postgres=#
 
 Получите полную информацию по выполнению запроса выдачи всех пользователей из задачи 4 
 (используя директиву EXPLAIN).
+```shell
+postgres=# explain select фамилия, наименование from clients, orders where заказ=orders.id;
+                              QUERY PLAN
+-----------------------------------------------------------------------
+ Hash Join  (cost=17.20..29.36 rows=170 width=436)
+   Hash Cond: (clients."заказ" = orders.id)
+   ->  Seq Scan on clients  (cost=0.00..11.70 rows=170 width=222)
+   ->  Hash  (cost=13.20..13.20 rows=320 width=222)
+         ->  Seq Scan on orders  (cost=0.00..13.20 rows=320 width=222)
+(5 rows)
 
+postgres=#
+```
 Приведите получившийся результат и объясните что значат полученные значения.
 
 ## Задача 6
@@ -249,7 +261,10 @@ postgres=#
 Восстановите БД test_db в новом контейнере.
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
-
+```shell
+root@b79c292c2df5:/# pg_dump -U postgres test_db >/var/lib/postgresql/data/backup/test_db.dump
+root@0340058ae2a9:/# pg_restore -U postgres -d test_db /var/lib/postgresql/data/backup/test_db.dump
+```
 ---
 
 ### Как cдавать задание
