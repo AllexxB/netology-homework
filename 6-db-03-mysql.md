@@ -102,6 +102,93 @@ mysql> select * from INFORMATION_SCHEMA.USER_ATTRIBUTES where user='test';
 - на `MyISAM`
 - на `InnoDB`
 
+```shell
+mysql> SET profiling = 1;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> show profiles;
++----------+------------+-------------------+
+| Query_ID | Duration   | Query             |
++----------+------------+-------------------+
+|        1 | 0.00013925 | SET profiling = 1 |
++----------+------------+-------------------+
+1 row in set, 1 warning (0.00 sec)
+```
+```shell
+mysql> SHOW TABLE STATUS FROM test_db LIKE 'orders'\G;
+*************************** 1. row ***************************
+           Name: orders
+         Engine: InnoDB
+        Version: 10
+     Row_format: Dynamic
+           Rows: 5
+ Avg_row_length: 3276
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 0
+ Auto_increment: 6
+    Create_time: 2023-02-28 12:50:47
+    Update_time: 2023-02-28 12:50:47
+     Check_time: NULL
+      Collation: utf8mb4_0900_ai_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified
+```
+```shell
+mysql> ALTER TABLE orders ENGINE = MyISAM;
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SHOW TABLE STATUS FROM test_db LIKE 'orders'\G;
+*************************** 1. row ***************************
+           Name: orders
+         Engine: MyISAM
+        Version: 10
+     Row_format: Dynamic
+           Rows: 5
+ Avg_row_length: 3276
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 0
+ Auto_increment: 6
+    Create_time: 2023-02-28 13:29:28
+    Update_time: 2023-02-28 12:50:47
+     Check_time: NULL
+      Collation: utf8mb4_0900_ai_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> SHOW PROFILES;
++----------+------------+----------------------------------------------+
+| Query_ID | Duration   | Query                                        |
++----------+------------+----------------------------------------------+
+|        1 | 0.00013925 | SET profiling = 1                            |
+|        2 | 0.00034425 | SHOW CREATE TABLE test_db                    |
+|        3 | 0.00016150 | SHOW CREATE TABLE orders                     |
+|        4 | 0.00007025 | SHOW CREATE TABLE 'orders'                   |
+|        5 | 0.00032500 | SELECT DATABASE()                            |
+|        6 | 0.00084200 | show databases                               |
+|        7 | 0.00079850 | show tables                                  |
+|        8 | 0.00008150 | SHOW CREATE TABLE 'orders'                   |
+|        9 | 0.00596450 | SHOW TABLE STATUS FROM test_db LIKE 'orders' |
+|       10 | 0.02490100 | ALTER TABLE orders ENGINE = MyISAM           |
+|       11 | 0.00116975 | SHOW TABLE STATUS FROM test_db LIKE 'orders' |
++----------+------------+----------------------------------------------+
+11 rows in set, 1 warning (0.00 sec)
+```
+
 ## Задача 4 
 
 Изучите файл `my.cnf` в директории /etc/mysql.
