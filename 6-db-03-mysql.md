@@ -202,6 +202,9 @@ mysql> SHOW PROFILES;
 
 Приведите в ответе измененный файл `my.cnf`.
 
+Модифицироанный файл:
+[my.cnf](https://github.com/AllexxB/netology-homework/blob/master/my.cnf)
+
 ---
 
 ### Как оформить ДЗ?
