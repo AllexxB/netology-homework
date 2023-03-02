@@ -63,7 +63,14 @@ alex@KRD-SO-20:~$
 с наибольшим средним значением размера элементов в байтах.
 
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
-
+```shell
+test_database=#
+test_database=# select avg_width, attname from pg_stats where tablename='orders' order by avg_width desc limit 1;
+ avg_width | attname 
+-----------+---------
+        16 | title
+(1 row)
+```
 ## Задача 3
 
 Архитектор и администратор БД выяснили, что ваша таблица orders разрослась до невиданных размеров и
