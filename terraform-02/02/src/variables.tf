@@ -49,7 +49,7 @@ variable "vpc_name" {
 
 variable "vm_web_name" {
   type = string
-  default =   "netology-develop-platform-web"
+  default =   "develop"
   description = "name_for_instance"
  }
 
@@ -66,7 +66,7 @@ variable "vm_web_name" {
 
 variable "vm_db_name" {
   type = string
-  default =   "netology-develop-platform-db"
+  default =   "develop"
   description = "name_for_instance"
  }
 
