@@ -34,14 +34,14 @@ module "vpc_dev" {
 ### Задание 3
 1. Выведите список ресурсов в стейте.
 
-![image](ссылка)
+![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-1.png)
 
 2. Удалите из стейта модуль vpc.
 
-![image](ссылка)
+![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-2.png)
 
 3. Импортируйте его обратно. Проверьте terraform plan - изменений быть не должно.
 Приложите список выполненных команд и вывод.
 
-![image](ссылка)
+![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-3.png)
 
