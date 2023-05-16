@@ -10,7 +10,7 @@
 3. Добавьте в файл cloud-init.yml установку nginx.
 4. Предоставьте скриншот подключения к консоли и вывод команды ```sudo nginx -t```.
 
-![image](ссылка)
+![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-1.png)
 
 ------
 
@@ -34,12 +34,9 @@ module "vpc_dev" {
 ### Задание 3
 1. Выведите список ресурсов в стейте.
 
-![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-1.png)
-
-2. Удалите из стейта модуль vpc.
-
 ![image](https://github.com/AllexxB/netology-homework/blob/master/pic/ter-04-2.png)
 
+2. Удалите из стейта модуль vpc.
 3. Импортируйте его обратно. Проверьте terraform plan - изменений быть не должно.
 Приложите список выполненных команд и вывод.
 
