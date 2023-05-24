@@ -2,8 +2,10 @@
 
 ![image](https://github.com/AllexxB/netology-homework/blob/master/pic/For%20bug.JPG)
 
-Экспортированные в XML workflow:  
+Экспортированный в XML workflow:  
 [bug workflow](https://github.com/AllexxB/netology-homework/blob/master/pic/For%20bug.xml).
 
+
 ![image](https://github.com/AllexxB/netology-homework/blob/master/pic/For%20all.JPG)
-ссылки на файлы и картинки
+Экспортированный в XML workflow:  
+[for all workflow](https://github.com/AllexxB/netology-homework/blob/master/pic/for%20all.xml).
