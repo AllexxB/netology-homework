@@ -26,7 +26,7 @@
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
 
-#### <image src="ссылка на картинку мониторинг 2-1">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/8dde246ab33d61d919b2af8b3a7076dc6def7882/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%202-1.png">
 
 ## Задание 2
 
@@ -56,19 +56,21 @@
     - node_memory_MemFree_bytes{instance="node-exporter:9100"} 
 - количество места на файловой системе. 
     - node_filesystem_free_bytes{mountpoint="/"}
-    
-#### <image src="ссылка на картинку мониторинг 2-2">
+
+#### <image src="https://github.com/AllexxB/netology-homework/blob/8dde246ab33d61d919b2af8b3a7076dc6def7882/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%202-2.png">
 
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
+#### <image src="https://github.com/AllexxB/netology-homework/blob/8dde246ab33d61d919b2af8b3a7076dc6def7882/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%202-3.png">
 
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
 
+#### (dash.json)
 ---
 
 ### Как оформить решение задания
