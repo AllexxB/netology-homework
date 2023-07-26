@@ -70,7 +70,9 @@
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
 
-[Dashboard] (https://github.com/AllexxB/netology-homework/blob/b6fed1269d31eb4252f90e92ee855af71bf65006/10-monitoring-03-grafana/dash.json)
+[Dashboard](https://github.com/AllexxB/netology-homework/blob/master/10-monitoring-03-grafana/dash.json)
+
+
 ---
 
 ### Как оформить решение задания
