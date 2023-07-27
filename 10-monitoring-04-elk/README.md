@@ -56,6 +56,10 @@ Filebeat следует сконфигурировать для отправки
 
 В манифесте директории help также приведенно dummy-приложение, которое генерирует рандомные события в stdout-контейнера.
 Эти логи должны порождать индекс logstash-* в elasticsearch. Если этого индекса нет — воспользуйтесь советами и источниками из раздела «Дополнительные ссылки» этого задания.
+
+#### <image src="https://github.com/AllexxB/netology-homework/blob/fecaf278f5c92e2fa69cf5519f47328dbc2d1333/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%203-3.png">
+
+#### <image src="https://github.com/AllexxB/netology-homework/blob/fecaf278f5c92e2fa69cf5519f47328dbc2d1333/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%203-4.png">
  
 ---
 
