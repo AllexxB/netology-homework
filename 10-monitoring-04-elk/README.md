@@ -44,9 +44,9 @@ Filebeat следует сконфигурировать для отправки
 - docker-compose манифест (если вы не использовали директорию help);
 - ваши yml-конфигурации для стека (если вы не использовали директорию help).
 
-#### <image src="">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/6f9667a23ee41b0b655efdc15156b8e06702c9b7/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%203-1.png">
 
-#### <image src="">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/6f9667a23ee41b0b655efdc15156b8e06702c9b7/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%203-2.png">
 
 ## Задание 2
 
