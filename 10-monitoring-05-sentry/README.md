@@ -19,7 +19,7 @@ Free Cloud account имеет ограничения:
 
 В качестве решения задания пришлите скриншот меню Projects.
 
-#### <image src="">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/cded935569c6adc4b9044ec326ea3c6e99e4a27b/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%204-1.png">
 
 ## Задание 2
 
@@ -28,8 +28,8 @@ Free Cloud account имеет ограничения:
 1. Перейдите в список событий проекта, выберите созданное вами и нажмите `Resolved`.
 1. В качестве решения задание предоставьте скриншот `Stack trace` из этого события и список событий проекта после нажатия `Resolved`.
 
-#### <image src="">
-#### <image src="">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/cded935569c6adc4b9044ec326ea3c6e99e4a27b/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%204-2.png">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/cded935569c6adc4b9044ec326ea3c6e99e4a27b/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%204-3.png">
 
 ## Задание 3
 
@@ -43,7 +43,7 @@ Free Cloud account имеет ограничения:
 5. В качестве решения задания пришлите скриншот тела сообщения из оповещения на почте.
 6. Дополнительно поэкспериментируйте с правилами алёртинга. Выбирайте разные условия отправки и создавайте sample events.
 
-#### <image src="">
+#### <image src="https://github.com/AllexxB/netology-homework/blob/cded935569c6adc4b9044ec326ea3c6e99e4a27b/pic/%D0%9C%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%204-4.png">
 
 ## Задание повышенной сложности
 
