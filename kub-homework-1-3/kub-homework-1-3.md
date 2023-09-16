@@ -6,7 +6,7 @@
 
 1. Создать Deployment приложения, состоящего из двух контейнеров — nginx и multitool. Решить возникшую ошибку.
 
-Файл [dep-1.yaml](./dep-1.yaml)
+Файл [Dep1.yaml](./Dep1.yaml)
 ```
 ---
 apiVersion: apps/v1
@@ -39,7 +39,7 @@ user@k8s:~$ kubectl get po
 NAME                     READY   STATUS             RESTARTS      AGE
 dep-1-79d9f49dc5-4blxp   1/2     CrashLoopBackOff   5 (29s ago)   3m58s
 ```
-Ошибку исправил добавив inv в [dep-1.yaml](./dep-1.yaml)
+Ошибку исправил добавив inv в [Dep1.yaml](./Dep1.yaml)
 ```
 ---
 apiVersion: apps/v1
@@ -84,7 +84,7 @@ dep-1-759d444bd-scqr4   2/2     Running   0          27s
 
 2. После запуска увеличить количество реплик работающего приложения до 2.
 
-Внес изменения в [dep-1.yaml](./dep-1.yaml), где указал
+Внес изменения в [Dep1.yaml](./Dep1.yaml), где указал
 ```
 spec:
   replicas: 2
@@ -107,7 +107,7 @@ user@k8s:~$
 
 4. Создать Service, который обеспечит доступ до реплик приложений из п.1.
 
-Создал файл  [service.yaml](./service.yaml)
+Создал файл  [Service.yaml](./Service.yaml)
 ```
 ---
 apiVersion: v1
@@ -142,7 +142,7 @@ user@k8s:~$
 
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
 
-Создал файл  [Pod-1.yaml](./Pod-1.yaml)  :
+Создал файл  [Pod1.yaml](./Pod1.yaml)  :
 ```
 ---
 apiVersion: v1
@@ -297,7 +297,7 @@ user@k8s:~$
 
 3. Создать и запустить Service. Убедиться, что Init запустился.
 
-Создал файл [Servic2.yaml](./Service2.yaml)
+Создал файл [Service2.yaml](./Service2.yaml)
 ```
 user@k8s:~$ kubectl apply -f Service2.yaml 
 service/srv-2 created
