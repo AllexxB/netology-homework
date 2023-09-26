@@ -136,18 +136,12 @@ Connection: keep-alive
 ETag: "64dbafc8-267"
 Accept-Ranges: bytes
 
-user@k8s:~$ kubectl exec frontend-54d8796d8c-4lrlf -- curl --silent -i service-back -I
-HTTP/1.1 200 OK
-Server: nginx/1.24.0
-Date: Tue, 26 Sep 2023 08:10:04 GMT
-Content-Type: text/html
-Content-Length: 138
-Last-Modified: Tue, 26 Sep 2023 08:04:49 GMT
-Connection: keep-alive
-ETag: "651290a1-8a"
-Accept-Ranges: bytes
-
-user@k8s:~$ 
+user@k8s:~$ kubectl exec frontend-54d8796d8c-4lrlf -- curl service-back
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   139  100   139    0     0   113k      0 --:--:-- --:--:-- --:--:--  135k
+WBITT Network MultiTool (with NGINX) - backend-7bd544dbdc-mf79v - 10.1.77.52 - HTTP: 80 , HTTPS: 443 . (Formerly praqma/network-multitool)
+user@k8s:~$  
 ```
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 
@@ -193,7 +187,7 @@ spec:
 user@k8s:~$ kubectl get ingress
 NAME           CLASS    HOSTS         ADDRESS     PORTS   AGE
 ingress-test   public   example.com   127.0.0.1   80      70m
-user@k8s:~$ curl 127.0.0.1  -H "HOST: example.com"
+user@k8s:~$ curl example.com
 <!DOCTYPE html>
 <html>
 <head>
@@ -217,14 +211,9 @@ Commercial support is available at
 <p><em>Thank you for using nginx.</em></p>
 </body>
 </html>
-user@k8s:~$ curl 127.0.0.1  -H "HOST: example.com/api"
-<html>
-<head><title>400 Bad Request</title></head>
-<body>
-<center><h1>400 Bad Request</h1></center>
-<hr><center>nginx</center>
-</body>
-</html>
+user@k8s:~$ curl example.com/api
+WBITT Network MultiTool (with NGINX) - backend-7bd544dbdc-mf79v - 10.1.77.52 - HTTP: 80 , HTTPS: 443 . (Formerly praqma/network-multitool)
+user@k8s:~$ 
 user@k8s:~$
 ```
 4. Предоставить манифесты и скриншоты или вывод команды п.2.
