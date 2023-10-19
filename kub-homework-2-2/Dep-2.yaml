@@ -1,0 +1,38 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: multitool
+  labels:
+    app: main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main
+  template:
+    metadata:
+      labels:
+        app: main
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command: ['sh', '-c', 'while true; do watch -n 5 date >> /test/output.txt; sleep 5; done']
+          volumeMounts:
+          - mountPath: /test
+            name: volume2
+        - name: multitool
+          image: wbitt/network-multitool
+          volumeMounts:
+          - mountPath: /test
+            name: volume2
+          env:
+          - name: HTTP_PORT
+            value: "80"
+          ports:
+          - containerPort: 80
+            name: http-port
+      volumes:
+      - name: volume2
+        persistentVolumeClaim:
+          claimName: my-pvc
