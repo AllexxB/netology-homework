@@ -22,6 +22,7 @@
 ## Файл [README.MD](./playbook/README.MD)
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
+[teg](https://github.com/AllexxB/netology-homework/releases/tag/08-ansible-02-playbook)
 ---
 
 ### Как оформить решение задания
