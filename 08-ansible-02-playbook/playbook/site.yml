@@ -29,6 +29,9 @@
       notify: Start clickhouse service
     - name: Flush handlers
       meta: flush_handlers
+    - name: Pause for 10 seconds.
+      ansible.builtin.pause:
+        seconds: 10
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
@@ -37,26 +40,45 @@
 
 - name: Install Vector
   hosts: vector
+  handlers:
+    - name: Restart Vector
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted
   tags:
     - vector
   tasks:
-    - name: Create directory
+    - name: Get Vector version
+      become: true
+      ansible.builtin.command: vector --version
+      register: vector_installed
+      failed_when: vector_installed.rc !=0
+      changed_when: vector_installed.rc ==0
+      ignore_errors: true
+      tags:
+        - vector
+    - name: Create directory vector
       become: true
       file:
         path: "{{ vector_path }}"
         state: directory
         mode: 0755
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Get distr
+    - name: Get vector distrib
       become: true
       ansible.builtin.get_url:
         url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-{{ ansible_architecture }}-unknown-linux-musl.tar.gz"
         dest: "{{ vector_path }}/vector-{{ vector_version }}-{{ ansible_architecture }}-unknown-linux-musl.tar.gz"
         mode: 755
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Unarchive files
+    - name: Unarchive vector
       become: true
       ansible.builtin.unarchive:
         src: "{{ vector_path }}/vector-{{ vector_version }}-{{ ansible_architecture }}-unknown-linux-musl.tar.gz"
@@ -64,9 +86,11 @@
         remote_src: true
         creates: "{{ vector_path }}/bin"
         extra_opts: [--strip-components=2]
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Create a symlink
+    - name: Create a symbolic link
       become: true
       ansible.builtin.file:
         src: "{{ vector_path }}/bin/vector"
@@ -74,9 +98,11 @@
         owner: root
         group: root
         state: link
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Create init file
+    - name: Create vector unit flie
       become: true
       ansible.builtin.template:
         src: ./templates/vector.service.j2
@@ -84,9 +110,11 @@
         mode: 0644
         owner: root
         group: root
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: creating directory for vector data
+    - name: Mkdir vector data
       become: true
       ansible.builtin.file:
         path: "{{ vector_data_path }}"
@@ -94,9 +122,11 @@
         group: root
         state: directory
         mode: '0755'
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Creating config for Vector
+    - name: Vector config create
       become: true
       ansible.builtin.template:
         src: ./templates/vector.toml.j2
@@ -105,14 +135,18 @@
         group: root
         mode: '0755'
         force: true
+      when:
+        - vector_installed is failed
       tags:
         - vector
-    - name: Creating service for vector
+    - name: Configuring service vector
       become: true
       systemd:
         name: vector
         state: "started"
         enabled: true
         daemon_reload: true
+      when:
+        - vector_installed is failed
       tags:
         - vector
