@@ -770,7 +770,7 @@ alex@KRD-SO-20:~/netology-homework/08-ansible-03-yandex/playbook$
 [README.md](playbook/README.md)
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
-
+[teg](https://github.com/AllexxB/netology-homework/releases/tag/08-ansible-03-yande)
 ---
 
 ### Как оформить решение задания
