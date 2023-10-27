@@ -38,7 +38,7 @@
 - name: Create init file
   become: true
   ansible.builtin.template:
-      src: ./templates/vector.service.j2
+      src: vector.service.j2
       dest: /etc/systemd/system/vector.service
       mode: 0644
       owner: root
@@ -58,7 +58,7 @@
 - name: Creating config for Vector
   become: true
   ansible.builtin.template:
-      src: ./templates/vector.toml.j2
+      src: vector.toml.j2
       dest: "{{ vector_config }}"
       owner: root
       group: root

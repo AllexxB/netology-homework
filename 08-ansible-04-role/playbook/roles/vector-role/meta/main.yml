@@ -1,6 +1,6 @@
 galaxy_info:
   role_name: vector install
-  author: Alex barvinko
+  author: Alex Barvinko
   description: Role for installation Vector
 
   license: MIT
