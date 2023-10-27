@@ -1,2 +1,9 @@
 ---
 # handlers file for lighthouse-role
+- name: Restart nginx service
+  become: true
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+  tags:
+    - lighthouse
