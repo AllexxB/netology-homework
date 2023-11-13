@@ -46,7 +46,7 @@
 
 Подняты вирт. машины в облаке Яндекса:
 
-Файл [kub-homework-3-2-1.PNG](./pic/kub-homework-3-2-1.PNG)
+![image](https://github.com/AllexxB/netology-homework/blob/cd971554a16061a4d48efcff646e553934fd35fa/pic/kub-homework-3-2-1.png)
 
 Вывод после инита кластера
 ```
