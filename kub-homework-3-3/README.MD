@@ -31,8 +31,8 @@
 1. Домашняя работа оформляется в своём Git-репозитории в файле README.md. Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 2. Файл README.md должен содержать скриншоты вывода необходимых команд, а также скриншоты результатов.
 3. Репозиторий должен содержать тексты манифестов или ссылки на них в файле README.md.
-
-deployments.yaml
+### Решение
+Подготовлен deployments.yaml следующего вида:
 
 ```yaml
 apiVersion: apps/v1
@@ -113,7 +113,7 @@ spec:
             cpu: "0.25"
             memory: "50Mi"
 ```
-services.yaml
+Подготовлен services.yaml следующего вида
 
 ```yaml
 ---
@@ -159,7 +159,8 @@ spec:
       targetPort: 80
 
 ```
-
+Создание namespace
+```
 user@master:~$ kubectl create namespace app
 namespace/app created
 user@master:~$ kubectl get ns
@@ -171,9 +172,9 @@ kube-node-lease   Active   7d1h
 kube-public       Active   7d1h
 kube-system       Active   7d1h
 user@master:~$
-
-
-
+```
+Созжание подов и сервисов
+```
 user@master:~$ kubectl apply -f deployments.yaml
 deployment.apps/frontend created
 deployment.apps/backend created
@@ -188,10 +189,11 @@ backend-68c75fdbf7-nfkn7    1/1     Running   0          19s
 cache-68d6b77c7f-h6cds      1/1     Running   0          19s
 frontend-787fd44db9-9n5zl   1/1     Running   0          19s
 user@master:~$
+```
 
 
 
-
+Файл с настройкой ограничения доступа по сети
 Politics.yaml
 ```yaml
 ---
@@ -244,7 +246,7 @@ spec:
   ingress: []  
 
 ```
-
+Применение политик
 ```
 user@master:~$ kubectl apply -f Politics.yaml 
 networkpolicy.networking.k8s.io/allow-frontend-to-backend created
@@ -252,7 +254,7 @@ networkpolicy.networking.k8s.io/allow-backend-to-cache created
 networkpolicy.networking.k8s.io/deny-all-to-frontend created
 user@master:~$
 ```
-
+Проверка отработки политик
 
 ```
 user@master:~$ kubectl get pods -n app -o wide
