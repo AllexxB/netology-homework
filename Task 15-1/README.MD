@@ -60,7 +60,7 @@ internal_ip_address_private = "192.168.20.23"
 alex@KRD-SO-20:~/netology-homework/Task 15-1/src$
 ```
 
-![task-15-1.PNG](./pic/task-15-1.PNG)
+![task-15-1.PNG](https://github.com/AllexxB/netology-homework/blob/075213abe4119d77f35c4aa784803f1d88170813/pic/task-15-1.png)
 
 
 Проверка созданных подсетей и инстансов
