@@ -246,7 +246,7 @@ spec:
   ingress: []  
 
 ```
-Применение политик
+Применение политики
 ```
 user@master:~$ kubectl apply -f Politics.yaml 
 networkpolicy.networking.k8s.io/allow-frontend-to-backend created
